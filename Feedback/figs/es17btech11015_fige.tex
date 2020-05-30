@@ -1,0 +1,14 @@
+\begin{circuitikz}[american]
+\draw (5,2) node[nmos](Q){};
+\draw (Q.center) node[right]{{Q}};
+\draw (Q.D) (5,3.25) node[label={right:$\downarrow I_o$}]{};
+\draw (Q.D) -- (5,3) to[R,l_=$R_D$] (5,4.5) node[vcc](VCC){} ;
+\draw (Q.S) -- (5,0.5)node[label={right:$V_f$}]{} to[R,l_=$R$] (5,-1) node[ground](GND){};
+\draw (2,2)  node[op amp, yscale=-1] (OA){};
+\draw (OA.+) (0.5,2)node[label={above:$+$}]{};
+\draw (OA.+) -- (-1,2.5) to[V, l= $V_{s}$] (-1,0) node[ground](GND){};
+\draw (OA.-) (0.5,1.25) node[label={above:$-$}]{}; 
+\draw (OA.-) -- (0.5,1.5) node[label={above:$V_i$}]{} to node[](){} (0.5,0.5) to node[](){} (5,0.5);
+\draw (OA.out) to (Q.G);
+\end{circuitikz}
+

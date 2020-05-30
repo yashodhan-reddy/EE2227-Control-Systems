@@ -1,0 +1,7 @@
+\begin{circuitikz}[american]
+    \draw (3,2) to[isource, l=$g_mV_{GS}$] (1,2) node[label={above:$V_f$}]{}; 
+    \draw (1,2) to(0,2) node[label=$-$]{} node[label={left:$S$}]{};
+    \draw (3,2) to[R, l=$R_L$] (3,0) node[ground](GND){};
+    \draw (0,2) to[R, l=$R$] (0,0) node[ground](GND){};
+    \draw (-1.5,2) node[label=$+$]{} node[label={right:$G$}]{} to (-3,2) node[label={above:$\mu\brak{V_s-V_f}$}]{};
+\end{circuitikz}
