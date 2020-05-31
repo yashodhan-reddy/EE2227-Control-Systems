@@ -1,0 +1,130 @@
+Consider a feedback transconductance amplifier as shown in the figure. It utilizes an op amp with open-loop gain $\mu$, very large resistance, and an NMOS transistor $Q$. The amplifier delivers its output current to $R_L$. The feedback network, composed of resistor $R$, senses the equal current in the source terminal of $Q$ and delivers a propotional voltage $V_f$  to the negative input terminal of the op amp.
+
+\begin{figure}[ht!]
+	\begin{center}
+	    %circuit
+	    \resizebox{\columnwidth/1}{!}{\input{./figs/es17btech11015_fige.tex}}
+	\end{center}
+	\caption{}
+	\label{fig:es17btech11015_fige}
+\end{figure}
+
+\begin{enumerate}[label=\arabic*.,ref=\theenumi]
+\item Show that the feedback is negative.
+\item Open the feedback loop by breaking the connection of $R$ to the negative input of the op amp and grounding the negative input terminal. Find an expression for $G \equiv \frac{I_o}{V_i}$
+\item Find an expression for $H \equiv \frac{V_f}{I_o}$
+\item Find an expression for $T \equiv \frac{I_o}{V_s}$
+\item What is the condition to obtain $I_o\approx\frac{V_s}{R}$
+\end{enumerate}\newpage
+\begin{enumerate}[label=\arabic*.,ref=\theenumi]
+\numberwithin{equation}{enumi}
+\item Show that the feedback is negative.\\
+\solution 
+Suppose if source voltage $V_s$ increases, then $V_G$ increases\\
+Since,\\
+\begin{align}
+I_o = \frac{1}{2}\mu_nC_{ox}\frac{W}{L}\brak{V_{GS}-V_{TH}}^2\\
+    I_o = \frac{1}{2}\mu_nC_{ox}\frac{W}{L}\brak{V_G-V_f-V_{TH}}^2
+\end{align}
+which thereby increases $I_o$\\
+
+Now, since $I_o$ is increasing, \\
+$V_f\brak{=I_oR}$ increases.\\
+and $V_f$ is feedback to negative terminal of the amplifier.\\
+Hence, the system is in negative feedback.\\
+\\
+
+\item Find an expression for $G \equiv \frac{I_o}{V_i}$\\
+\solution  Applying small signal analysis, we get the resultant circuit as follows 
+\begin{figure}[ht!]
+	\begin{center}
+	    %circuit
+	    \resizebox{\columnwidth/1}{!}{\input{./figs/es17btech11015_figb.tex}}
+	\end{center}
+	\caption{}
+	\label{fig:es17btech11015_fig2}
+\end{figure}
+\begin{align}
+    V_f = I_oR
+\end{align}
+and 
+\begin{align}
+    I_o = g_m\brak{\mu V_i-V_f}\\
+= g_m\brak{\mu V_i-I_oR}\\
+\implies \brak{1+g_mR}I_o = g_m\mu V_i
+\end{align}
+Therefore,\begin{align}
+   G \equiv \frac{I_o}{V_i} = \frac{g_m\mu}{1+g_mR}
+\end{align}\\
+
+\item Find an expression for $H \equiv \frac{V_f}{I_o}$
+\\
+\solution 
+From the circuit diagram, Fig: \ref{fig:es17btech11015_fige}
+\begin{align}
+    V_f = I_oR
+\end{align}
+Therefore,\begin{align}
+    H \equiv \frac{V_f}{I_o} = R
+\end{align}\\
+
+\item Find an expression for $T \equiv \frac{I_o}{V_s}$
+\\
+\solution  Applying small signal analysis, we get the resultant circuit as follows 
+\begin{figure}[ht!]
+	\begin{center}
+	    %circuit
+	    \resizebox{\columnwidth/1}{!}{\input{./figs/es17btech11015_figd.tex}}
+	\end{center}
+	\caption{}
+	\label{fig:es17btech11015_fig2}
+\end{figure}\\
+\begin{align}
+I_o = g_mV_{gs}\\
+= g_m\brak{\mu\brak{V_s-V_f}-V_f}\\
+= g_m\brak{\mu V_s-\brak{\mu+1}V_f}\\
+= g_m\mu V_s-g_m\brak{\mu+1}I_oR\\
+\implies \brak{1+g_m\brak{\mu+1}R}I_o = g_m\mu V_s\\
+\end{align}
+Therefore,
+\begin{align}
+    T \equiv \frac{I_o}{V_s} = \frac{g_m\mu}{1+g_m\brak{\mu+1}R}
+\end{align}
+
+\item What is the condition to obtain $I_o\approx\frac{V_s}{R}$\\
+\solution
+From the circuit diagram, Fig: \ref{fig:es17btech11015_fige}
+\begin{align}
+    I_o = \frac{1}{2}\mu_nC_{ox}\frac{W}{L}\brak{V_{GS}-V_{TH}}^2\\
+    I_o = \frac{1}{2}\mu_nC_{ox}\frac{W}{L}\brak{V_G-V_f-V_{TH}}^2
+\end{align}
+and \begin{align}
+    V_f = I_oR
+\end{align}
+\begin{align}
+    \implies I_o = \frac{1}{2}\mu_nC_{ox}\frac{W}{L}\brak{\mu V_s-\brak{\mu+1}I_oR-V_{TH}}^2
+\label{eq:es17btech11015_eq1}    
+\end{align}
+If\begin{align}
+    I_o << \frac{\mu_nC_{ox}W}{2L}
+\end{align} and
+\begin{align}
+    \mu >> 1
+\end{align}
+From equation \eqref{eq:es17btech11015_eq1}, we get
+\begin{align}
+    \sqrt{\frac{2I_o}{\mu_nC_{ox}\frac{W}{L}}} << \mu V_s-\brak{\mu+1}I_oR\\
+\end{align}
+then,\begin{align}
+    \mu V_s \approx \brak{\mu+1}I_oR-V_{TH}
+\end{align}
+which can be approximated to 
+\begin{align}
+    V_s \approx I_oR
+\end{align}
+Thus, $\mu>>1$ and $I_o<<\frac{\mu_nC_{ox}W}{2L}$ are the conditions to obtain $V_s \approx I_oR$
+% 
+\end{enumerate}
+
+
+
